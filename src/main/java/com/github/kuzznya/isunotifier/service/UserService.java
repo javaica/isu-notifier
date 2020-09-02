@@ -1,6 +1,6 @@
 package com.github.kuzznya.isunotifier.service;
 
-import com.github.kuzznya.isunotifier.entity.User;
+import com.github.kuzznya.isunotifier.entity.UserEntity;
 import com.github.kuzznya.isunotifier.repo.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +15,19 @@ public class UserService {
         this.repository = repository;
     }
 
-    public List<User> getAll() {
+    public List<UserEntity> getAll() {
         return repository.findAll();
     }
 
-    public User findUserById(Long id) {
+    public UserEntity findUserById(Long id) {
         return repository.getOne(id);
     }
 
-    public void add(User user) {
+    public void add(UserEntity user) {
         repository.save(user);
     }
 
-    public void remove(User user) {
+    public void remove(UserEntity user) {
         repository.delete(user);
     }
 }

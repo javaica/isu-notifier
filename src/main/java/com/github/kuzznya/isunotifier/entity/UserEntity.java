@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class User {
+public class UserEntity {
     @Id
     Long id;
     String username;

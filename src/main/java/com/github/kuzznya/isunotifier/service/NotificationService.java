@@ -1,6 +1,6 @@
 package com.github.kuzznya.isunotifier.service;
 
-import com.github.kuzznya.isunotifier.entity.User;
+import com.github.kuzznya.isunotifier.entity.UserEntity;
 import com.github.kuzznya.isunotifier.model.State;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
@@ -18,7 +18,7 @@ public class NotificationService {
         this.userService = userService;
     }
 
-    public void notify(State state, User user) {
+    public void notify(State state, UserEntity user) {
         switch (state) {
             case OK:
                 bot.execute(new SendMessage(user.getId(), "WARNING ISU state is now OK"));

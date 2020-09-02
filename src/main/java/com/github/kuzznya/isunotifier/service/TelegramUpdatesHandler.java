@@ -1,6 +1,6 @@
 package com.github.kuzznya.isunotifier.service;
 
-import com.github.kuzznya.isunotifier.entity.User;
+import com.github.kuzznya.isunotifier.entity.UserEntity;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Message;
@@ -37,7 +37,7 @@ public class TelegramUpdatesHandler implements UpdatesListener {
                 break;
 
             case "/subscribe":
-                User user = new User();
+                UserEntity user = new UserEntity();
                 user.setId(message.chat().id());
                 user.setUsername(message.from().username());
 
@@ -49,7 +49,7 @@ public class TelegramUpdatesHandler implements UpdatesListener {
 
             case "/unsubscribe":
                 userService.remove(userService.findUserById(message.chat().id()));
-                bot.execute(new SendMessage(message.chat().id(), "User removed from notification list"));
+                bot.execute(new SendMessage(message.chat().id(), "UserEntity removed from notification list"));
 
                 break;
 
