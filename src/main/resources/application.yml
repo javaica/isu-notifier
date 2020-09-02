@@ -1,6 +1,22 @@
 bot.api-key: 1393065423:AAGsRbEXUkP5lpuOrJhfDDV1QqYX9bDWSmc
 
+isu:
+  uri: https://isu.ifmo.ru/pls/apex/f?p=2437:22:111331497525840::NO::P22_LIST:1
+  cookies: ORA_WWV_RAC_INSTANCE=2; REMEMBER_ME=C852F72EFA68834B8AC386A19E9A95AE:BAAE493A1B8EFD75D6F2797A37492EA8; CUSTOM_COOKIE=17.01.2020 00:44:53; ISU_AP_COOKIE=ORA_WWV-1weo/FyJdjUAEvRoNPx6zuNO; ISU_LIB_SID=ORA_WWV-1weo/FyJdjUAEvRoNPx6zuNO
+
 spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+---
+spring:
+  profiles: dev
   datasource:
     url: jdbc:h2:mem:h2DB;DB_CLOSE_DELAY=-1
     driver-class-name: org.h2.Driver

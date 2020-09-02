@@ -4,14 +4,10 @@ import com.github.kuzznya.isunotifier.entity.User;
 import com.github.kuzznya.isunotifier.model.State;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class NotificationService {
-
-    private final Logger logger = LoggerFactory.getLogger(NotificationService.class);
 
     private final TelegramBot bot;
 
