@@ -31,9 +31,8 @@ public class IsuService {
     public IsuService(RestTemplate restTemplate, NotificationService notificationService, IsuProperties properties) {
         this.restTemplate = restTemplate;
         this.notificationService = notificationService;
-        this.preparingPagePattern = Pattern.compile("<div class=\"panel-body\">[.\\s\\n]*" +
-                "Cтраница учебного плана находится в подготовке открытия выбора\\. Попробуйте перейти к учебному плану позже\\.[.\\n\\s]*" +
-                "</div>");
+        this.preparingPagePattern = Pattern.compile(
+                "Cтраница учебного плана находится в подготовке открытия выбора");
         this.properties = properties;
     }
 
@@ -61,7 +60,7 @@ public class IsuService {
         if (newState == state)
             return;
 
-        logger.info("ISU state is now " + state.name());
+        logger.info("ISU state is now " + newState.name());
 
         notificationService.notifyAll(newState);
 
